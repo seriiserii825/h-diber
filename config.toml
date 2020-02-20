@@ -1,3 +1,18 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Diber"
+
+
+# CSS Plugins
+[[params.plugins.css]]
+link = "plugins/fontawesome/css/all.min.css"
+
+# Js Plugins
+[[params.plugins.js]]
+link = "plugins/mixitup/mixitup.min.js"
+[[params.plugins.js]]
+link = "plugins/slick/slick/slick.min.js"
+
+# Link custom CSS and JS assets
+#   (relative to /static/css and /static/js respectively)
+customCSS = []            # if ['custom.css'], load '/static/css/custom.css' file
