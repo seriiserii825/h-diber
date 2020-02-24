@@ -4,18 +4,15 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta charset="utf-8">
 
-    {{ "<!-- plugins -->" | safeHTML }}
-    {{ print .Site.Params.plugins.css }}
-
     {{ range .Site.Params.plugins.css }}
     <link rel="stylesheet" href="{{ .link | absURL }} ">
     {{ end }}
 
-    {{ "<!-- Main Stylesheet -->" | safeHTML }}
+    {{ "<!-- Main Stylesheet --> " | safeHTML }}
     {{ $styles := resources.Get "css/my.css" | toCSS | minify }}
     <link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen">
 
-    {{ "<!--Favicon-->" | safeHTML }}
+    {{ "<!--Favicon--> " | safeHTML }}
     <link rel="shortcut icon" href="{{ `images/favicon.png` | absURL }} " type="image/x-icon">
     <link rel="icon" href="{{ `images/favicon.png` | absURL }} " type="image/x-icon">
 </head>
@@ -39,16 +36,18 @@
                     <div class="sandwitch__line sandwitch__line--bottom"></div>
                 </div>
             </div>
+
+
             <ul class="main-menu" id="js-main-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="nostre-bire.html">Le nostre birre</a></li>
-                <li><a href="alte-bevande.html">Altre bevande</a></li>
-                <li><a href="services.html">Servizi</a></li>
-                <li><a href="about.html">Chi siamo</a></li>
-                <li><a href="contacts.html">Contatti</a></li>
+                {{ $currentPage := . }}
+                {{ range .Site.menu.main }}
+                <li class='{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}'>
+                    <a href="{{ .URL }}">{{ .Name }}</a>
+                </li>
             </ul>
+
             <a class="logo" href="index.html">
-                <img src="assets/i/logo.svg" alt="">
+                <img src="images/logo.svg" alt="">
             </a>
             <ul class="header-socials">
                 <li><a href="#">
@@ -61,4 +60,3 @@
         </div>
     </div>
 </header>
-
