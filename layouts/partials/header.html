@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta charset="utf-8">
 
+    {{ "<!-- plugins -->" | safeHTML }}
     {{ range .Site.Params.plugins.css }}
     <link rel="stylesheet" href="{{ .link | absURL }} ">
     {{ end }}
@@ -39,11 +40,11 @@
 
 
             <ul class="main-menu" id="js-main-menu">
-                {{ $currentPage := . }}
-                {{ range .Site.menu.main }}
-                <li class='{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}'>
-                    <a href="{{ .URL }}">{{ .Name }}</a>
-                </li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
             </ul>
 
             <a class="logo" href="index.html">
@@ -58,5 +59,16 @@
                 </a></li>
             </ul>
         </div>
+
+        <ul>
+            {{ $currentPage := . }}
+            {{ range .Site.Menus.main }}
+                <li>
+                    <a href="{{.URL}}">
+                        <span>{{ .Name }}</span>
+                    </a>
+                </li>
+            {{end}}
+        </ul>
     </div>
 </header>

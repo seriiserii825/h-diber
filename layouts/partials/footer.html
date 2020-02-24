@@ -88,9 +88,19 @@
 <script src="assets/libs/html5shiv/html5shiv-printshiv.min.js"></script>
 <script src="assets/libs/html5shiv/respond.min.js"></script>
 <!--<![endif]-->
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="assets/libs/jquery-easy-scroll/jquery.easeScroll.js"></script>
-<script src="assets/libs/slick/slick/slick.min.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="plugins/jquery-easy-scroll/jquery.easeScroll.js"></script>
+<script src="plugins/slick/slick/slick.min.js"></script>
+
+{{ "<!-- JS Plugins -->" | safeHTML }}
+{{ range .Site.Params.plugins.js}}
+<script src="{{ .link | absURL }}"></script>
+{{ end }}
+
+{{ "<!-- Main Script -->" | safeHTML }}
+{{ $script := resources.Get "js/main.js" | minify}}
+<script src="{{ $script.Permalink }}"></script>
 </body>
 </html>
