@@ -6,7 +6,7 @@
 
     {{ "<!-- plugins -->" | safeHTML }}
     {{ range .Site.Params.plugins.css }}
-    <link rel="stylesheet" href="{{ .link | absURL }} ">
+        <link rel="stylesheet" href="{{ .link | absURL }} ">
     {{ end }}
 
     {{ "<!-- Main Stylesheet --> " | safeHTML }}
@@ -19,6 +19,15 @@
 </head>
 <title>{{ .Site.Title }}</title>
 <body>
+
+<ul class="main-menu">
+    {{ $currentPage := . }}
+    {{ range .Site.Menus.main}}
+    <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+    {{ end }}
+</ul>
+
+
 <div class="hidden"><?xml version="1.0" encoding="utf-8"?>
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <symbol viewBox="264.2 371 20.3 18.8" id="basket" xmlns="http://www.w3.org/2000/svg">
@@ -60,15 +69,6 @@
             </ul>
         </div>
 
-        <ul>
-            {{ $currentPage := . }}
-            {{ range .Site.Menus.main }}
-                <li>
-                    <a href="{{.URL}}">
-                        <span>{{ .Name }}</span>
-                    </a>
-                </li>
-            {{end}}
-        </ul>
     </div>
 </header>
+
