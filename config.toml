@@ -1,17 +1,17 @@
-baseURL = ""
+baseURL = "/"
 languageCode = "en-us"
 title = "Diber"
 
 
 # CSS Plugins
-[[params.plugins.css]]
-link = "plugins/fontawesome/css/all.min.css"
+#[[params.plugins.css]]
+#link = "plugins/fontawesome/css/all.min.css"
 
 # Js Plugins
-[[params.plugins.js]]
-link = "plugins/mixitup/mixitup.min.js"
-[[params.plugins.js]]
-link = "plugins/slick/slick/slick.min.js"
+#[[params.plugins.js]]
+#link = "plugins/mixitup/mixitup.min.js"
+#[[params.plugins.js]]
+#link = "plugins/slick/slick/slick.min.js"
 
 [menu]
 
