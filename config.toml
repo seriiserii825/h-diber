@@ -14,16 +14,17 @@ link = "plugins/mixitup/mixitup.min.js"
 link = "plugins/slick/slick/slick.min.js"
 
 [menu]
-	[[menu.main]]
-	identifier = "home"
-	name = "home"
-	url = "/"
-	weight = 2
 
 	[[menu.main]]
-	identifier = "articles"
-	name = "articles"
-	url = "/articles/"
-	weight = 1
+		identifier = "home"
+		name = "home"
+		url = "/"
+		weight = 2
+
+	[[menu.main]]
+		identifier = "articles"
+		name = "articles"
+		url = "/articles/"
+		weight = 1
 
 
