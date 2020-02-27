@@ -5,7 +5,7 @@
     <meta charset="utf-8">
 
     {{ "<!-- plugins -->" | safeHTML }}
-    {{ range .Site.Params.Plugins.css }}
+    {{ range site.Params.Plugins.css }}
         <link rel="stylesheet" href="{{ .link | absURL }} ">
     {{ end }}
 
@@ -24,6 +24,12 @@
     {{ $currentPage := . }}
     {{ range .Site.Menu.main}}
     <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+    {{ end }}
+
+    {{ range site.Menus.main }}
+
+    <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+
     {{ end }}
 </ul>
 
